@@ -11,10 +11,11 @@ exec_context = DataLoader.load_exec_context('embd','pail','aes')
 retriever = ContextRetriever(exec_context['pail'], exec_context['aes'], exec_context['embd'],INDEX_URL,DB_URL)
 
 while True:
+    # user_input = input("enter time stan")
     user_input = input("Enter a query: ")
     if not user_input:
         exit()
-    contexts = retriever.search_and_retrieve(user_input)
+    contexts = retriever.search_and_retrieve(user_input,k=2)
     context = ContextRetriever.format_context(contexts)
     print("LLM Answer: \n")
     result = deepseek_inference.query(RAG_PROMPT_TEMP(context,user_input))
