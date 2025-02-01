@@ -5,7 +5,7 @@ import datetime
 import pickle as pkl
 
 if len(sys.argv) != 2:
-    print("Usage: python data_loader.py file_path embd_path pail_path aes_path")
+    print("Usage: python setup.py personal_data.json")
 else:
     __, file_path = sys.argv
     aes_key = input("enter a key for your AES client: ")
